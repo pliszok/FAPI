@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order</title>
+</head>
+
+<body>
+<h2>Order</h2>
+<form action="summary.html" method="post" onsubmit="return storeFormData()">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required><br><br>
+
+  <label for="email">E-mail:</label>
+  <input type="email" id="email" name="email" required><br><br>
+
+  <label for="product">Product:</label>
+  <input type="text" id="product" name="product" required><br><br>
+
+  <label for="quantity">Quantity:</label>
+  <input type="number" id="quantity" name="quantity" required><br><br>
+
+  <label for="price">Price:</label>
+  <input type="number" id="price" name="price" required><br><br>
+
+  <input type="submit" value="Submit">
+</form>
+
+<script>
+    function storeFormData() {
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+      var product = document.getElementById('product').value;
+      var quantity = document.getElementById('quantity').value;
+      var price = document.getElementById('price').value;
+
+      sessionStorage.setItem('name', name);
+      sessionStorage.setItem('email', email);
+      sessionStorage.setItem('product', product);
+      sessionStorage.setItem('quantity', quantity);
+      sessionStorage.setItem('price', price);
+    }
+  </script>
+</body>
+</html>
+
+

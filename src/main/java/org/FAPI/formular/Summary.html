@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Summary</title>
+</head>
+
+<body>
+<h2>Order Summary</h2>
+<div id="summary"></div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var name = sessionStorage.getItem('name');
+      var email = sessionStorage.getItem('email');
+      var product = sessionStorage.getItem('product');
+      var quantity = sessionStorage.getItem('quantity');
+      var price = sessionStorage.getItem('price');
+
+      var totalPrice = quantity * price * 1.21;
+
+      var currencySelect = document.createElement('select');
+      currencySelect.setAttribute('name', 'currency');
+      currencySelect.innerHTML = `
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+        <option value="GBP">GBP</option>
+      `;
+
+      var summaryDiv = document.getElementById('summary');
+      summaryDiv.innerHTML = `
+        <p>Name: ${name}</p>
+        <p>Email: ${email}</p>
+        <p>Product: ${product}</p>
+        <p>Quantity: ${quantity}</p>
+        <p>Price: ${price}</p>
+        <p>Currency: </p>
+        ${currencySelect.outerHTML}
+        <p>Total Price: ${totalPrice}</p>
+      `;
+    });
+  </script>
+</body>
+</html>
+
